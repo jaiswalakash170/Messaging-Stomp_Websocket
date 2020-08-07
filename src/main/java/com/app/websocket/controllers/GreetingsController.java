@@ -17,11 +17,11 @@ public class GreetingsController {
 	
 	@MessageMapping("/hello")
 	@SendTo("/topic/greetings")
-	public Greeting greeting(HelloMessage message) throws Exception
+	public String greeting(String message) throws Exception
 	{
 		//Thread.sleep(1000);
-		System.out.println("Serving greeting method Name : " + message.getName());
-		Greeting g = new Greeting("Hello " + message.getName() + "!");
-		return g;
+		System.out.println("Serving greeting method Name : " + message);
+		Greeting g = new Greeting("Hello " + message + "!");
+		return g.toString();
 	}
 }
